@@ -1,3 +1,16 @@
-<h1>
-  {{title}}
-</h1>
+<h4>Chat Group Status</h4>
+
+<form  [formGroup]="group" (ngSubmit)="onSubmit(group)">
+  Group: <input type="text" formControlName="group" required><br>
+  Address: <input type="text" formControlName="address" required><br>
+  <button type="submit">Check</button>
+</form>
+
+<hr>
+<div [hidden]="valuesHidden">
+  Number of online operators: {{numOperatorsAvailable+numOperatorsDND}}<br>
+  Number of operators available for chatting: {{numOperatorsAvailable}}<br/>
+  Number of operators with DND: {{numOperatorsDND}}<br/>
+  Visitor queue size: {{queueSize}}<br/>
+  All operators busy: {{allOperatorsBusy}}
+</div>
